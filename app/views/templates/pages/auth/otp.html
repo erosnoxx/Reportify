@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportify - Verificação</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth/otp.css') }}">
+</head>
+<body>
+    <div class="otp-box">
+        <div class="img">
+            <img src="https://t.ly/7CuFm" width="100px" alt="OTP">
+        </div>
+        <div class="content-box">
+            <h2>Código de verificação</h2>
+            <p>Um e-mail foi enviado para <span style="color: red;">{{user_email}}</span>. Por favor, verifique sua caixa de entrada e insira o código de confirmação abaixo.</p>
+        </div>
+    
+        <form method="post">
+            {{form.csrf_token}}
+            <div class="inputs">
+                {{form.otp1}}
+                {{form.otp2}}
+                {{form.otp3}}
+                {{form.otp4}}
+                {{form.otp5}}
+                {{form.otp6}}
+            </div>
+            {% with message = get_flashed_messages() %}
+                {% if message %}
+                    <div class="otp-info">
+                        <div class="alert alert-info" style="font-size: smaller; font-style: italic;">
+                            {{ message[0] }}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <div class="verify-btn">
+                {{form.submit(value='Verificar')}}
+            </div>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/auth/otp.js') }}"></script>
+</body>
+</html>

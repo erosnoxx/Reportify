@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	{% block title %}
+
+	{% endblock title %}
+	<link rel="icon" type="image/png" href=" {{ url_for('static', filename='assets/images/auth/logo.png') }} ">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/auth/login.css') }}">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<img class="wave" src="{{ url_for('static', filename='assets/images/auth/wave.png') }}">
+	<div class="container">
+		<div class="img">
+			<img src="{{ url_for('static', filename='assets/images/auth/bg.svg') }}">
+		</div>
+		{% block content %}
+		
+		{% endblock content %}
+    </div>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/auth/login.js') }}"></script>
+</body>
+</html>

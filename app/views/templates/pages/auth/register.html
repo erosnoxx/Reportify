@@ -1,0 +1,72 @@
+{% extends "layouts/auth/login_layout.html" %}
+
+{% block title %}
+<title>Reportify - Cadastro</title>
+{% endblock title %}
+
+{% block content %}
+
+<div class="login-content">
+    <form method="post">
+      {{form.csrf_token}}
+        <img src="{{ url_for('static', filename='assets/images/auth/logo.png') }}">
+        <h2 class="title">Reportify</h2>
+            <div class="input-div one">
+                <div class="i">
+                <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                {{ form.first_name.label }}
+                {{ form.first_name(class="input")}}
+                </div>
+            </div>
+            <div class="input-div one">
+                <div class="i">
+                <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                {{ form.last_name.label }}
+                {{ form.last_name(class="input")}}
+                </div>
+            </div>
+            <div class="input-div one">
+              <div class="i">
+              <i class="fas fa-calendar"></i>
+              </div>
+              <div class="div">
+              {{ form.date_of_birth }}
+              </div>
+          </div>
+           <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="div">
+                {{ form.email.label }}
+                {{ form.email(class="input")}}
+              </div>
+           </div>
+           <div class="input-div pass">
+              <div class="i"> 
+                   <i class="fas fa-lock"></i>
+              </div>
+              <div class="div">
+            {{ form.password.label }}
+            {{ form.password(class="input")}}
+           </div>
+           {% with message = get_flashed_messages() %}
+           {% if message %}
+           <div class="otp-info">
+             <div class="alert alert-info" style="font-size: smaller; font-style: italic;">
+                 {{ message[0] }}
+             </div>
+           </div>
+           {% endif %}
+         {% endwith %}
+        </div>
+        <a href="{{ url_for('auth.login_') }}">Já tenho conta</a>
+        {{ form.submit(class="btn") }}
+    </form>
+</div>
+
+{% endblock content %}
