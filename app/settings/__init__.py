@@ -1,0 +1,1 @@
+from app.settings.extensions import db, mail, lm
