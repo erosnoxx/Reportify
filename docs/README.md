@@ -57,7 +57,7 @@ flask db migrate
 flask db upgrade
 ```
 
-5. Crie um arquivo `.env` baseado no arquivo `.envsample` e configure as variáveis de ambiente conforme necessário.
+## Crie um arquivo `.env` baseado no arquivo `.env.sample` e configure as variáveis de ambiente conforme necessário.
 
 ## Executando o Projeto
 
