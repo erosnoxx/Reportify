@@ -1,0 +1,8 @@
+[default]
+EXTENSIONS = [
+    'app.settings.env:init_app',
+    'app.settings.extensions:init_app',
+    'app.settings.management.routes:init_app',
+    'app.settings.management.login:init_app',
+    'app.settings.management.mail:init_app',
+]
